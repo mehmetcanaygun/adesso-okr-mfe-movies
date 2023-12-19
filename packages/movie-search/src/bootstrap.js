@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
-const mount = (el, { onNavigate, initialPathname, defaultHistory }) => {
+const mount = (
+  el,
+  { onNavigate, initialPathname, defaultHistory, onMovieClick }
+) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
@@ -21,7 +24,7 @@ const mount = (el, { onNavigate, initialPathname, defaultHistory }) => {
     }
   }
 
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App history={history} onMovieClick={onMovieClick} />, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {

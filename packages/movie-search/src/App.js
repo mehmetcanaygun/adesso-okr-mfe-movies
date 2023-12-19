@@ -11,13 +11,15 @@ const generateClassName = createGenerateClassName({
   productionPrefix: 'ms',
 });
 
-const App = ({ history }) => {
+const App = ({ history, onMovieClick }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/" component={SearchPage} />
+            <Route exact path="/">
+              <SearchPage onMovieClick={onMovieClick} />
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>

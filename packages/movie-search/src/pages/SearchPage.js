@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 const history = createBrowserHistory();
 
-const SearchPage = () => {
+const SearchPage = ({ onMovieClick }) => {
   const isMount = useRef(true);
 
   const classes = useStyles();
@@ -81,10 +81,12 @@ const SearchPage = () => {
     setFilterTerm('');
   };
 
-  const onMovieClick = (movie) => {
+  const handleClick = (movie) => {
     if (!movie || !movie.imdbID) return;
 
-    history.push(`/${movie.imdbID}`);
+    if (!onMovieClick) return;
+
+    onMovieClick(movie.imdbID);
   };
 
   return (
@@ -126,7 +128,7 @@ const SearchPage = () => {
             sm={6}
             md={4}
             lg={3}
-            onClick={() => onMovieClick(movie)}
+            onClick={() => handleClick(movie)}
           >
             <Card key={movie.imdbID}>
               <CardActionArea>
