@@ -5,11 +5,11 @@ on:
     branches:
       - main
     paths:
-      - 'packages/movieDetail/**'
+      - 'packages/movie-detail/**'
 
 defaults:
   run:
-    working-directory: packages/movieDetail
+    working-directory: packages/movie-detail
 
 jobs:
   build:
