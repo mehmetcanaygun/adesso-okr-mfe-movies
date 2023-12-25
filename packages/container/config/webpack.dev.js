@@ -19,6 +19,7 @@ const devConfig = {
       name: 'container',
       remotes: {
         movieSearch: 'movieSearch@http://localhost:8081/remoteEntry.js',
+        movieDetail: 'movieDetail@http://localhost:8082/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),
