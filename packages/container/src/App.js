@@ -5,8 +5,11 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 import { createBrowserHistory } from 'history';
+import './styles/index.css';
 
 import Loading from './components/Loading';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const MovieSearchLazy = lazy(() => import('./components/MovieSearchApp'));
 const MovieDetailLazy = lazy(() => import('./components/MovieDetailApp'));
@@ -19,13 +22,19 @@ const history = createBrowserHistory();
 
 export default () => {
   const onMovieClick = (id) => {
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+
+    // Navigate to the movie detail page
     history.push(`/detail/${id}`);
   };
 
   return (
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
-        <div>
+        <div className="App">
+          <Header />
+
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route path="/detail/:id" component={MovieDetailLazy} />
@@ -34,6 +43,8 @@ export default () => {
               </Route>
             </Switch>
           </Suspense>
+
+          <Footer />
         </div>
       </StylesProvider>
     </Router>

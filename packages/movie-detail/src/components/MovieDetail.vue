@@ -38,25 +38,31 @@ export default {
 </script>
 
 <template>
-  <div class="movie-details">
-    <div class="poster">
-      <img :src="movie.Poster" :alt="movie.Title" />
-    </div>
-    <div class="details">
-      <h1>{{ movie.Title }} ({{ movie.Year }})</h1>
-      <p><strong>Rated:</strong> {{ movie.Rated }}</p>
-      <p><strong>Released:</strong> {{ movie.Released }}</p>
-      <p><strong>Genre:</strong> {{ movie.Genre }}</p>
-      <p><strong>Director:</strong> {{ movie.Director }}</p>
-      <p><strong>Writer:</strong> {{ movie.Writer }}</p>
-      <p><strong>Actors:</strong> {{ movie.Actors }}</p>
-      <p><strong>Plot:</strong> {{ movie.Plot }}</p>
-      <p><strong>IMDb Rating:</strong> {{ movie.imdbRating }}</p>
+  <div class="page-wrapper">
+    <div class="movie-details">
+      <div class="poster">
+        <img :src="movie.Poster" :alt="movie.Title" />
+      </div>
+      <div class="details">
+        <h1>{{ movie.Title }} ({{ movie.Year }})</h1>
+        <p><strong>Rated:</strong> {{ movie.Rated }}</p>
+        <p><strong>Released:</strong> {{ movie.Released }}</p>
+        <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+        <p><strong>Director:</strong> {{ movie.Director }}</p>
+        <p><strong>Writer:</strong> {{ movie.Writer }}</p>
+        <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+        <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+        <p><strong>IMDb Rating:</strong> {{ movie.imdbRating }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.page-wrapper {
+  min-height: 100vh;
+}
+
 .movie-details {
   display: flex;
   max-width: 960px;

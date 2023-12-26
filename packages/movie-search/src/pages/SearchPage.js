@@ -16,6 +16,7 @@ import MOVIES from '../../data/movies.json';
 const useStyles = makeStyles((theme) => ({
   container: {
     maxWidth: '960px',
+    minHeight: '100vh',
     margin: '0 auto',
   },
   searchContainer: {
